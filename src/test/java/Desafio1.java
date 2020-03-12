@@ -13,7 +13,14 @@ import static java.lang.System.*;
 public class Desafio1 {
 
     WebDriver driver;
+    AcessaPagina access;
+    RealizaAcoes acoes;
 
+    public Desafio1(AcessaPagina access, RealizaAcoes acoes){
+        access = new AcessaPagina(driver);
+        acoes = new RealizaAcoes(driver);
+
+    }
 
     @Before
     public void configuraAcessoBrowser(){
@@ -23,14 +30,19 @@ public class Desafio1 {
     }
 
     @Test
-    public void realizaDesafio(){
-        AcessaPagina access = new AcessaPagina(driver);
-        RealizaAcoes acoes = new RealizaAcoes(driver);
+    public void realizaDesafio1(){
+        access.acessoLink("https://shopcart-challenge.4all.com/");
         acoes.categoriaDoces();
         acoes.adicionarItens();
         acoes.consultaCarrinho();
         acoes.aumentaQuantidadeItens();
         acoes.finalizaCompra();
+
+    }
+
+    @Test
+    public void realizaDesafio2(){
+        access = new AcessaPagina(driver);
 
     }
 
