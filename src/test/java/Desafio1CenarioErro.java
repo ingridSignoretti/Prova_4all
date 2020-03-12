@@ -10,6 +10,7 @@ public class Desafio1CenarioErro {
     public Desafio1CenarioErro(WebDriver driver){
         this.driver = driver;
     }
+
     public void categoriaDoces() {
         WebElement categoriaLista = driver.findElement(By.id("open-categories-btn"));
 
