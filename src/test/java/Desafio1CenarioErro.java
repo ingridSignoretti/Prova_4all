@@ -43,6 +43,5 @@ public class Desafio1CenarioErro {
         }
         String msg =  driver.switchTo().alert().getText();
         Assert.assertEquals("Você deseja realmente remover o produto do carrinho?", msg);
-
     }
 }
