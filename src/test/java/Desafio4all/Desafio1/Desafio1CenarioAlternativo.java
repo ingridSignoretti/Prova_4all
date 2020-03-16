@@ -1,34 +1,29 @@
-import org.junit.After;
+package Desafio4all.Desafio1;
+
+import Desafio4all.MetodosDesafios;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 
-public class Desafio1CenarioCorreto {
+public class Desafio1CenarioAlternativo {
     private WebDriver driver;
     WebElement categoriaLista;
-    WebElement buttonAdicionar;
-    WebElement risoles;
     String valorBrigadeiro;
-    String valorBrigadeiroCarrinho;
     String valorAlfajor;
-    String valorAlfajorCarrinho;
-    MetodosDesafios metDesa;
-    String replace;
+    Desafio1CenarioCorreto desafCC;
+    MetodosDesafios metDesaf;
     String novoValorBriga;
     String valorAlfajorTotalCar;
     String precoCompraTotal;
     double valorTotal;
     double valalfconv;
 
-
-    public Desafio1CenarioCorreto(WebDriver driver) {
+    public Desafio1CenarioAlternativo(WebDriver driver) {
         this.driver = driver;
+
     }
 
     @Test
@@ -41,10 +36,20 @@ public class Desafio1CenarioCorreto {
     }
 
     @Test
-    public void adicionarItens() {
+    public void adicaoItens() {
+        MetodosDesafios metDesaf = new MetodosDesafios(driver);
+        Desafio1CenarioCorreto desafCC = new Desafio1CenarioCorreto(driver);
         WebElement buttonAdicionar = driver.findElement(By.id("add-product-4-btn"));
         valorBrigadeiro = driver.findElement(By.xpath("//*[@id=\"product-4\"]/div[1]/div[2]/p[2]")).getText();
         buttonAdicionar.click();
+
+        metDesaf.consultaCarrinho();
+
+        desafCC.aumentaQuantidadeBrigadeiro();
+        WebElement voltar = driver.findElement(By.id("back-button"));
+        voltar.click();
+        metDesaf.categoriaTodos();
+
 
         buttonAdicionar = driver.findElement(By.id("add-product-5-btn"));
         valorAlfajor = driver.findElement(By.xpath("//*[@id=\"product-5\"]/div[1]/div[2]/p[2]")).getText();
@@ -52,22 +57,14 @@ public class Desafio1CenarioCorreto {
     }
 
     @Test
-    public void validaPrecoUnitario() {
-        valorBrigadeiroCarrinho = driver.findElement(By.id("product-4-price")).getText();
+    public void validaPrecoUnitarioC() {
+        String valorBrigadeiroCarrinho = driver.findElement(By.id("product-4-price")).getText();
         Assert.assertEquals(valorBrigadeiro, valorBrigadeiroCarrinho);
 
-        valorAlfajorCarrinho = driver.findElement(By.id("product-5-price")).getText();
+        String valorAlfajorCarrinho = driver.findElement(By.id("product-5-price")).getText();
         Assert.assertEquals(valorAlfajor, valorAlfajorCarrinho);
-    }
 
 
-    @Test
-    public void aumentaQuantidadeBrigadeiro() {
-
-        WebElement brigadeiro = driver.findElement(By.id("add-product-4-qtd"));
-        for (int i = 0; i <= 3; i++) {
-            brigadeiro.click();
-        }
     }
 
     @Test
@@ -101,7 +98,7 @@ public class Desafio1CenarioCorreto {
 
         double valorTotalItens = valorTotal + valalfconv;
 
-       if (valorTotalItens == valorDouble) {
+        if (valorTotalItens == valorDouble) {
             Assert.assertTrue("Total Validado", true);
         }
 
@@ -114,3 +111,5 @@ public class Desafio1CenarioCorreto {
     }
 
 }
+
+

@@ -1,3 +1,5 @@
+package Desafio4all;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
