@@ -11,14 +11,10 @@ import org.openqa.selenium.WebElement;
 public class Desafio1CenarioCorreto {
     private WebDriver driver;
     WebElement categoriaLista;
-    WebElement buttonAdicionar;
-    WebElement risoles;
     String valorBrigadeiro;
     String valorBrigadeiroCarrinho;
     String valorAlfajor;
     String valorAlfajorCarrinho;
-    MetodosDesafios metDesa;
-    String replace;
     String novoValorBriga;
     String valorAlfajorTotalCar;
     String precoCompraTotal;
