@@ -1,4 +1,4 @@
 # Project exclude paths
-/target/
-/.idea/
-/Prova_4all.iml/
+/target
+/.idea
+/Prova_4all.iml
